@@ -74,14 +74,16 @@ import ipeadatapy as ipea
 codigo_ipca = 'PRECOS12_IPCA12' 
 
 with st.spinner("Carregando dados do IPCA..."):
-    df = ipea.timeseries(codigo_ipca, from_date='2010', to_date='2024')
+    df = ipea.timeseries(codigo_ipca)
 
 df = df.reset_index()
+df = df[(df['DATE'].dt.year >= 2010) & (df['DATE'].dt.year <= 2024)]
 
-df = df.rename(columns={
-    "YEAR": "Ano",
-    "VALUE ((% a.a.))": "IPCA"
-})
+df['Ano'] = df['DATE'].dt.year
+
+df = df.rename(columns={"VALUE": "IPCA"})
+
+df = df[['Ano', 'IPCA']]
 
 st.subheader("📈 Dados IPCA Anual (2010 - 2024)")
 st.dataframe(df, use_container_width=True)
