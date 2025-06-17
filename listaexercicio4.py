@@ -59,7 +59,8 @@ plt.ylabel("Percentual (%)")
 plt.grid(True)
 st.pyplot(fig)
 
-"""4) Utilize o pacote ipeadatapy e faça busca para encontrar o indicador que traga o IPCA, taxa de variação, em % e anual: (peso: 2,0)
+"""
+4) Utilize o pacote ipeadatapy e faça busca para encontrar o indicador que traga o IPCA, taxa de variação, em % e anual: (peso: 2,0)
 
 - Baixe os dados no período de 2010 a 2024
 - Altere o nome da coluna "YEAR" para "Ano"
@@ -77,7 +78,8 @@ ipca = ipca.rename(columns={"YEAR": "Ano", "VALUE": "IPCA"})
 st.subheader("IPCA Anual (2010-2024)")
 st.dataframe(ipca)
 
-"""5) Combine as duas df (Excel e IPEA) em uma nova df e calcule nova coluna chamada Receita Real (peso: 2,0)
+"""
+5) Combine as duas df (Excel e IPEA) em uma nova df e calcule nova coluna chamada Receita Real (peso: 2,0)
 
 - Utilize a função `pd.merge()` para unificar as duas df utiilizando a coluna Ano como conexão (chave primária) entre elas
 - Crie nova coluna chamada Receita Real que será o resultado da Receita Líquida de cada ano deduzido o IPCA do ano: `Receita Real = Receitta Líquida - ( Receita Líquida * (IPCA/100) )`
@@ -94,7 +96,8 @@ df_completo["Receita Real"] = df_completo["Receita Líquida"] - (
 st.subheader("Dados Combinados com Receita Real")
 st.dataframe(df_completo)
 
-"""6) Crie gráfico de linha que apresente as variáveis Receita Líquida e Receita Real ao longo dos anos (no mesmo gráfico) (peso: 1,0)"""
+"""
+6) Crie gráfico de linha que apresente as variáveis Receita Líquida e Receita Real ao longo dos anos (no mesmo gráfico) (peso: 1,0)"""
 
 df_receitas = df_completo.groupby("Ano")[["Receita Líquida", "Receita Real"]].mean()
 
