@@ -104,7 +104,6 @@ df_2
 """
 df_receitas = df_2.groupby("Ano")[["Receita Líquida", "Receita Real"]].mean()
 
-st.subheader("Receita Líquida vs Receita Real")
 fig, ax = plt.subplots(figsize=(10,6))
 ax.plot(df_receitas["Ano"], df_receitas["Receita Líquida"], marker="o", label="Receita Líquida")
 ax.plot(df_receitas["Ano"], df_receitas["Receita Real"], marker="o", label="Receita Real")
