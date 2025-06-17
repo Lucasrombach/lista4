@@ -95,7 +95,6 @@ df_2 = pd.merge(df, df1[['Ano', 'IPCA']], left_on='Ano', right_on='Ano', how='le
 
 df_2['Receita Real'] = df_2['Receita Líquida'] - (df_2['Receita Líquida'] * (df_2['IPCA'] / 100))
 
-df_2.drop(columns='Ano', inplace=True)
 
 df_2
 
