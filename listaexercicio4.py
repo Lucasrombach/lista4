@@ -103,7 +103,7 @@ df_2
 6) Crie gráfico de linha que apresente as variáveis Receita Líquida e Receita Real ao longo dos anos (no mesmo gráfico) (peso: 1,0)
 """
 
-df_receitas = df_completo.groupby("Ano")[["Receita Líquida", "Receita Real"]].mean()
+df_receitas = df_2.groupby("Ano")[["Receita Líquida", "Receita Real"]].mean()
 
 st.subheader("Receita Líquida vs Receita Real")
 fig2, ax2 = plt.subplots()
