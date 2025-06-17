@@ -114,6 +114,7 @@ plt.grid(True)
 st.pyplot(fig2)
 
 """
+
 7) Faça os ajustes necessários e leve este projeto para a web usando GitHub e Streamlit (peso: 2,0)
 
 - Caça os ajustes necessários no projeto para ser publicado no Streamlit
