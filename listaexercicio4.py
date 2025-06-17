@@ -69,7 +69,7 @@ st.pyplot(fig)
 """
 import ipeadatapy as ip
 
-df1 = ip.timeseries("PRECOS_IPCAG)
+df1 = ip.timeseries("PRECOS_IPCAG")
 df1 = df1.loc["2010":"2024"]
 df1 = df1.rename(columns={"YEAR": "ANO", "VALUE ((% a.a.))": "IPCA"})
 st.dataframe("df1")
