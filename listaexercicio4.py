@@ -71,7 +71,7 @@ st.pyplot(fig)
 """
 import ipeadatapy as ipea
 
-df1 = ip.timeseries("PRECOS_IPCA", yearGreater=2009, yearSmallerThan=2025)
+df1 = ip.timeseries("PRECOS_IPCAG", yearGreater=2009, yearSmallerThan=2025)
 df1.rename(columns={"YEAR": "Ano", "VALUE ((% a.a.))": "IPCA"}, inplace=true)
 df1
 
