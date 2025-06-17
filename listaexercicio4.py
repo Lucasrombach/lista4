@@ -113,7 +113,8 @@ plt.ylabel("Valor em Reais")
 plt.grid(True)
 st.pyplot(fig2)
 
-"""7) Faça os ajustes necessários e leve este projeto para a web usando GitHub e Streamlit (peso: 2,0)
+"""
+7) Faça os ajustes necessários e leve este projeto para a web usando GitHub e Streamlit (peso: 2,0)
 
 - Caça os ajustes necessários no projeto para ser publicado no Streamlit
 - Crie novo repositório público no GitHub e leve os arquivos .py e .csv pra lá. Aproveite e crie o arquivo requirements.txt com os pacotes utilizados no projeto
