@@ -106,11 +106,14 @@ df_2
 df_receitas = df_2.groupby("Ano")[["Receita Líquida", "Receita Real"]].mean()
 
 st.subheader("Receita Líquida vs Receita Real")
-fig2, ax2 = plt.subplots()
-df_receitas.plot(kind="line", marker="o", ax=ax2)
-plt.title("Receita Líquida x Receita Real (média por ano)")
-plt.ylabel("Valor em Reais")
-plt.grid(True)
+fig2, ax2 = plt.subplots(figsize=(10,6))
+ax.plot(df_receitas["Ano"], df_receitas["Receita Líquida"], marker="o", label="Receita Líquida" 
+ax.plot(df_receitas["Ano"], df_receitas["Receita Real"], marker="o", label="Receita Real"
+ax.set_title("Receita Líquida vs Receita Real (média por ano)")
+ax.set_xlabel("Ano")
+ax.set_ylabel("Valor em Reais")
+ax.grid(True)
+fig.tight_layout()
 st.pyplot(fig2)
 
 """
