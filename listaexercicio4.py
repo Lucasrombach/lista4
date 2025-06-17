@@ -44,6 +44,7 @@ st.dataframe(df.head(len(df)))
 
 - Margem Líquida = Lucro Líquido / Receita Líquida * 100
 - ROA = Lucro Líquido / Ativo Total *  100
+
 """
 
 import matplotlib.pyplot as plt
