@@ -71,12 +71,7 @@ st.pyplot(fig)
 """
 import ipeadatapy as ipea
 
-st.set_page_config(page_title="IPCA - Indicador Econômico", layout="centered")
-
-st.title("📊 IPCA Anual (% a.a.) - Fonte: IpeaData")
-
-
-codigo_ipca = 'PRECOS12_IPCA12'  # Verifique se este código ainda é válido no ipeadatapy
+codigo_ipca = 'PRECOS12_IPCA12' 
 
 with st.spinner("Carregando dados do IPCA..."):
     df = ipea.timeseries(codigo_ipca, from_date='2010', to_date='2024')
