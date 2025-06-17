@@ -91,14 +91,14 @@ df1
 
 """
 
-df_completo = pd.merge(df, ipca, on="Ano", how="left")
+df_2 = pd.merge(df, df1[['ano', 'IPCA']], left_on='Ano', right_on='ano', how='left')
 
-df_completo["Receita Real"] = df_completo["Receita Líquida"] - (
-    df_completo["Receita Líquida"] * (df_completo["IPCA"] / 100)
-)
+df_2['Receita Real'] = df_2['Receita Líquida'] - (df_2['Receita Líquida'] * (df_2['IPCA'] / 100))
 
-st.subheader("Dados Combinados com Receita Real")
-st.dataframe(df_completo)
+
+df_2.drop(columns='ano', inplace=True)
+
+df_2
 
 """
 6) Crie gráfico de linha que apresente as variáveis Receita Líquida e Receita Real ao longo dos anos (no mesmo gráfico) (peso: 1,0)"""
