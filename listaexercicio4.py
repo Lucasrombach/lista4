@@ -45,8 +45,7 @@ st.dataframe(df.head(len(df)))
 - ROA = Lucro Líquido / Ativo Total *  100
 """
 
-import matplotib.pyplot as plt
-
+import matplotlib.pyplot as plt
 df["Margem Líquida"] = df["Lucro Líquido"] / df["Receita Líquida"] * 100
 df["ROA"] = df["Lucro Líquido"] / df["Ativo Total"] * 100
 
