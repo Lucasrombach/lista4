@@ -69,13 +69,31 @@ st.pyplot(fig)
 - Apresente a df para checar se tudo deu certo
 
 """
-import ipeadatapy as ip
+import ipeadatapy as ipea
 
-df1 = ip.timeseries("PRECOS_IPCAG")
-df1 = df1.loc["2010":"2024"]
-df1 = df1.rename(columns={"YEAR": "ANO", "VALUE ((% a.a.))": "IPCA"})
+st.set_page_config(page_title="IPCA - Indicador Econômico", layout="centered")
 
-st.dataframe("df1")
+st.title("📊 IPCA Anual (% a.a.) - Fonte: IpeaData")
+
+
+codigo_ipca = 'PRECOS12_IPCA12'  # Verifique se este código ainda é válido no ipeadatapy
+
+with st.spinner("Carregando dados do IPCA..."):
+    df = ipea.timeseries(codigo_ipca, from_date='2010', to_date='2024')
+
+df = df.reset_index()
+
+df = df.rename(columns={
+    "YEAR": "Ano",
+    "VALUE ((% a.a.))": "IPCA"
+})
+
+st.subheader("📈 Dados IPCA Anual (2010 - 2024)")
+st.dataframe(df, use_container_width=True)
+
+st.subheader("📉 Gráfico do IPCA Anual")
+st.line_chart(df.set_index("Ano")["IPCA"])
+
 """
 5) Combine as duas df (Excel e IPEA) em uma nova df e calcule nova coluna chamada Receita Real (peso: 2,0)
 
