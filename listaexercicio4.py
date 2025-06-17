@@ -46,8 +46,8 @@ st.dataframe(df.head(len(df)))
 - ROA = Lucro Líquido / Ativo Total *  100
 
 """
-
 import matplotlib.pyplot as plt
+
 df["Margem Líquida"] = df["Lucro Líquido"] / df["Receita Líquida"] * 100
 df["ROA"] = df["Lucro Líquido"] / df["Ativo Total"] * 100
 
@@ -60,6 +60,21 @@ plt.ylabel("Percentual (%)")
 plt.grid(True)
 st.pyplot(fig)
 
+"""
+4) Utilize o pacote ipeadatapy e faça busca para encontrar o indicador que traga o IPCA, taxa de variação, em % e anual: (peso: 2,0)
+
+- Baixe os dados no período de 2010 a 2024
+- Altere o nome da coluna "YEAR" para "Ano"
+- Altere o nome da coluna "VALUE ((% a.a.))" para "IPCA"
+- Apresente a df para checar se tudo deu certo
+
+"""
+import ipeadatapy as ip
+
+df1 = ip.timeseries("PRECOS_IPCAG")
+df1 = df1.loc["2010":"2024"]
+df1 = df1.rename(columns={"YEAR": "ANO", "VALUE ((% a.a.))": "IPCA"})
+st.dataframe("df1")
 """
 5) Combine as duas df (Excel e IPEA) em uma nova df e calcule nova coluna chamada Receita Real (peso: 2,0)
 
