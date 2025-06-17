@@ -100,9 +100,9 @@ df_2.drop(columns='Ano', inplace=True)
 df_2
 
 """
-6) Crie gráfico de linha que apresente as variáveis Receita Líquida e Receita Real ao longo dos anos (no mesmo gráfico) (peso: 1,0)"""
-
+6) Crie gráfico de linha que apresente as variáveis Receita Líquida e Receita Real ao longo dos anos (no mesmo gráfico) (peso: 1,0)
 """
+
 df_receitas = df_completo.groupby("Ano")[["Receita Líquida", "Receita Real"]].mean()
 
 st.subheader("Receita Líquida vs Receita Real")
@@ -114,7 +114,6 @@ plt.grid(True)
 st.pyplot(fig2)
 
 """
-
 7) Faça os ajustes necessários e leve este projeto para a web usando GitHub e Streamlit (peso: 2,0)
 
 - Caça os ajustes necessários no projeto para ser publicado no Streamlit
