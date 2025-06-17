@@ -45,12 +45,12 @@ st.dataframe(df.head(len(df)))
 - ROA = Lucro Líquido / Ativo Total *  100
 """
 
-df_empresas["Margem Líquida"] = df_empresas["Lucro Líquido"] / df_empresas["Receita Líquida"] * 100
-df_empresas["ROA"] = df_empresas["Lucro Líquido"] / df_empresas["Ativo Total"] * 100
+df["Margem Líquida"] = df["Lucro Líquido"] / df["Receita Líquida"] * 100
+df["ROA"] = df["Lucro Líquido"] / df["Ativo Total"] * 100
 
 st.subheader("Indicadores: Margem Líquida e ROA por Ano")
 fig, ax = plt.subplots()
-df_grouped = df_empresas.groupby("Ano")[["Margem Líquida", "ROA"]].mean()
+df_grouped = df.groupby("Ano")[["Margem Líquida", "ROA"]].mean()
 df_grouped.plot(kind="line", marker="o", ax=ax)
 plt.title("Margem Líquida e ROA (Média por Ano)")
 plt.ylabel("Percentual (%)")
@@ -83,7 +83,7 @@ st.dataframe(ipca)
 
 """
 
-df_completo = pd.merge(df_empresas, ipca, on="Ano", how="left")
+df_completo = pd.merge(df, ipca, on="Ano", how="left")
 
 df_completo["Receita Real"] = df_completo["Receita Líquida"] - (
     df_completo["Receita Líquida"] * (df_completo["IPCA"] / 100)
