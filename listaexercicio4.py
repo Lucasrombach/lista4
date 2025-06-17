@@ -71,7 +71,7 @@ st.pyplot(fig)
 """
 import ipeadatapy as ip
 ip.list_series("IPCA")
-ip.describe("PRECOS_IPCAG)
+ip.describe("PRECOS_IPCAG")
 
 df1 = ip.timeseries("PRECOS_IPCAG", yearGreater=2009, yearSmallerThan=2025)
 df1.rename(columns={"YEAR": "Ano", "VALUE ((% a.a.))": "IPCA"}, inplace=true)
