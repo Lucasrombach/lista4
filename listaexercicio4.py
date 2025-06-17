@@ -106,7 +106,7 @@ df_2
 df_receitas = df_2.groupby("Ano")[["Receita Líquida", "Receita Real"]].mean()
 
 st.subheader("Receita Líquida vs Receita Real")
-fig2, ax2 = plt.subplots(figsize=(10,6))
+fig, ax = plt.subplots(figsize=(10,6))
 ax.plot(df_receitas["Ano"], df_receitas["Receita Líquida"], marker="o", label="Receita Líquida")
 ax.plot(df_receitas["Ano"], df_receitas["Receita Real"], marker="o", label="Receita Real")
 ax.set_title("Receita Líquida vs Receita Real (média por ano)")
@@ -114,7 +114,7 @@ ax.set_xlabel("Ano")
 ax.set_ylabel("Valor em Reais")
 ax.grid(True)
 fig.tight_layout()
-st.pyplot(fig2)
+st.pyplot(fig)
 
 """
 7) Faça os ajustes necessários e leve este projeto para a web usando GitHub e Streamlit (peso: 2,0)
