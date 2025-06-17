@@ -67,7 +67,9 @@ st.pyplot(fig)
 - Altere o nome da coluna "VALUE ((% a.a.))" para "IPCA"
 - Apresente a df para checar se tudo deu certo
 """
-
+#pip install ipeadatapy
+import ipeadatapy as ip
+ip.list_series("IPCA")
 ipca = ipeadata.get_series("PRECOS12_IPCA12")
 
 ipca = ipca[(ipca["YEAR"] >= 2010) & (ipca["YEAR"] <= 2024)]
