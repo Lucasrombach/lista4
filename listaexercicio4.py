@@ -66,6 +66,7 @@ st.pyplot(fig)
 - Altere o nome da coluna "YEAR" para "Ano"
 - Altere o nome da coluna "VALUE ((% a.a.))" para "IPCA"
 - Apresente a df para checar se tudo deu certo
+
 """
 import ipeadatapy as ip
 
@@ -74,7 +75,8 @@ df1 = df1.loc["2010":"2024"]
 df1 = df1.rename(columns={"YEAR": "ANO", "VALUE ((% a.a.))": "IPCA"})
 st.dataframe("df1")
 
-"""5) Combine as duas df (Excel e IPEA) em uma nova df e calcule nova coluna chamada Receita Real (peso: 2,0)
+"""
+5) Combine as duas df (Excel e IPEA) em uma nova df e calcule nova coluna chamada Receita Real (peso: 2,0)
 
 - Utilize a função `pd.merge()` para unificar as duas df utiilizando a coluna Ano como conexão (chave primária) entre elas
 - Crie nova coluna chamada Receita Real que será o resultado da Receita Líquida de cada ano deduzido o IPCA do ano: `Receita Real = Receitta Líquida - ( Receita Líquida * (IPCA/100) )`
