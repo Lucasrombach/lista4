@@ -61,22 +61,6 @@ plt.grid(True)
 st.pyplot(fig)
 
 """
-4) Utilize o pacote ipeadatapy e faça busca para encontrar o indicador que traga o IPCA, taxa de variação, em % e anual: (peso: 2,0)
-
-- Baixe os dados no período de 2010 a 2024
-- Altere o nome da coluna "YEAR" para "Ano"
-- Altere o nome da coluna "VALUE ((% a.a.))" para "IPCA"
-- Apresente a df para checar se tudo deu certo
-
-"""
-import ipeadatapy as ip
-
-df1 = ip.timeseries("PRECOS_IPCAG")
-df1 = df1.loc["2010":"2024"]
-df1 = df1.rename(columns={"YEAR": "ANO", "VALUE ((% a.a.))": "IPCA"})
-st.dataframe("df1")
-
-"""
 5) Combine as duas df (Excel e IPEA) em uma nova df e calcule nova coluna chamada Receita Real (peso: 2,0)
 
 - Utilize a função `pd.merge()` para unificar as duas df utiilizando a coluna Ano como conexão (chave primária) entre elas
