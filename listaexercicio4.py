@@ -78,7 +78,7 @@ ip.describe('PRECOS_IPCAG')
 
 df1 = ip.timeseries('PRECOS_IPCAG', yearGreaterThan=2009, yearSmallerThan=2025)
 
-df1.rename(columns={"YEAR": "Ano", "VALUE ((% a.a.))": "IPCA"}, inplace=true)
+df1.rename(columns={'YEAR': 'Ano', 'VALUE ((% a.a.))': 'IPCA'}, inplace=True)
 
 df1
 
