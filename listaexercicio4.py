@@ -67,18 +67,12 @@ st.pyplot(fig)
 - Altere o nome da coluna "VALUE ((% a.a.))" para "IPCA"
 - Apresente a df para checar se tudo deu certo
 """
-#pip install ipeadatapy
 import ipeadatapy as ip
-ip.list_series("IPCA")
-ipca = ipeadata.get_series("PRECOS12_IPCA12")
 
-ipca = ipca[(ipca["YEAR"] >= 2010) & (ipca["YEAR"] <= 2024)]
-
-ipca = ipca[["YEAR", "VALUE"]].drop_duplicates()
-ipca = ipca.rename(columns={"YEAR": "Ano", "VALUE": "IPCA"})
-
-st.subheader("IPCA Anual (2010-2024)")
-st.dataframe(ipca)
+df1 = ip.timeseries("PRECOS_IPCAG)
+df1 = df1.loc["2010":"2024"]
+df1 = df1.rename(columns={"YEAR": "ANO", "VALUE ((% a.a.))": "IPCA"})
+df1
 
 """
 5) Combine as duas df (Excel e IPEA) em uma nova df e calcule nova coluna chamada Receita Real (peso: 2,0)
